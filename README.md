@@ -6,7 +6,7 @@ Tell your agent:
 
 > Please install the skill from https://github.com/LovelyAuth/lovelyauth-skill and set up LovelyAuth.
 
-The agent should install the skill using its supported skill installer, install the CLI globally from npm, and start device login. It will give you an approval link and code. Open the link, sign in, and approve the connection; the agent then verifies access to your vault.
+The agent should install the skill using its supported skill installer, install or update to the latest CLI from npm, and start device login. It will give you an approval link and code. Open the link, sign in, and approve the connection; the agent then verifies access to your vault.
 
 After setup, ask:
 
@@ -23,13 +23,13 @@ The skill entry point is [`SKILL.md`](SKILL.md) at the repository root. For agen
 The CLI requires **Node.js 24+**, npm, and an internet connection. The skill guides the agent through:
 
 ```sh
-npm install -g lovelyauth
+npm install -g lovelyauth@latest
 lovelyauth login device
 lovelyauth list
 lovelyauth get <slug>
 ```
 
-You do not need an npm account or a device code in advance. The login command generates the approval link and code. Once connected, the CLI remembers the session for later requests.
+Before every login, the agent checks `npm view lovelyauth version` and updates the CLI if a newer version is published. You do not need an npm account or a device code in advance. The login command generates the approval link and code. Once connected, the CLI remembers the session for later requests.
 
 Only connect a vault on a machine and with an agent you trust to handle its verification codes. The skill does not grant permission to change or delete your vault accounts.
 
